@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
+  // fileChosen:File = new File();
 
+  onChange(event:any){
+    console.log(event.target.files);
+    // console.log(this.fileChosen);
+  }
 }

@@ -1,0 +1,8 @@
+.dis-price {
+    text-decoration: line-through
+}
+
+.act-price {
+    color: rgb(0, 0, 0);
+    font-weight: 700
+}

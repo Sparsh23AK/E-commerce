@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row mt-3 mb-3" *ngFor="let f of frontendData">
+        <h1 class="display-5">{{f.title}}</h1>
+        <div class="col-md-3" *ngFor="let d of f.cardInfo">
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.highsnobiety.com/static-assets/thumbor/muJTVGN-BsRmd4lIfZ1hNCF7w-k=/1600x1067/www.highsnobiety.com/static-assets/wp-content/uploads/2019/05/17153636/2best-fashion-trends-men-2019.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{d.cardTitle}}</h5>
+                  <p class="card-text">{{d.cardText}}</p>
+                  <a href="{{d.cardHref}}" class="btn btn-primary">Go Somewhere</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

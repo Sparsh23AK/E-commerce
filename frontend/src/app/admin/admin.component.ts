@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AdminService } from '../admin.service';
 import { Observable,Subject } from "rxjs";  
+import { AdminService } from '../_services/admin.service';
 
 @Component({
   selector: 'app-admin',

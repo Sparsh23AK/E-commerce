@@ -71,7 +71,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="addProductAdminFormControl" (ngSubmit)="onAddProductSumbit()">
+            <form [formGroup]="addProductAdminFormControl" (ngSubmit)="onAddProductSubmit()">
                 <div class="form-group">
                     <label class="form-label">Product Category</label>
                     <input type="text" class="form-control" formControlName="productCategory"  required aria-describedby="emailHelp">

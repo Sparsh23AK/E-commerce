@@ -9,13 +9,6 @@ import { Observable,Subject } from "rxjs";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-<<<<<<< HEAD
-  // fileChosen:File = new File();
-
-  onChange(event:any){
-    console.log(event.target.files);
-    // console.log(this.fileChosen);
-=======
   addProductAdminFormControl = new FormGroup({
     productCategory : new FormControl(),
     description : new FormControl(),
@@ -32,7 +25,7 @@ constructor(private adminService : AdminService) { }
 ngOnInit() {
   }
 
-  onAddProductSumbit(){
+  onAddProductSubmit(){
     console.log('addProductAdminFormControl' , this.addProductAdminFormControl.value);
     this.adminService.saveProduct(this.addProductAdminFormControl.value).subscribe( {
       next: (v) => console.log(v),
@@ -52,6 +45,5 @@ ngOnInit() {
      // reader.readAsDataURL(input.files[0]);
     }
 
->>>>>>> 1615a66beb13f0f2c980429ddf7c9dc171a7226f
   }
 }

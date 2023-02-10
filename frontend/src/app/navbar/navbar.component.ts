@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAuthService } from '../_services/user-auth.service';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,8 @@ import { UserAuthService } from '../_services/user-auth.service';
 export class NavbarComponent {
   constructor(
     private userAuthService: UserAuthService,
-    private router: Router
+    private router: Router,
+    public userService: UserService
     ) {}
 
   public isLoggedIn(){
@@ -21,5 +24,6 @@ export class NavbarComponent {
     this.userAuthService.clear();
     this.router.navigate(['/home']);
   }
+
 
 }

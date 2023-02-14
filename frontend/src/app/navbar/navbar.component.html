@@ -5,6 +5,7 @@
   <span class="example-spacer"></span>
   <button mat-raised-button routerLink="/login" color="primary">Login</button>
   <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+  <button mat-raised-button color="alert" routerLink="/register"  routerLinkActive="active">Register</button>
 </mat-toolbar>
 
 
@@ -41,9 +42,9 @@
           </li> -->
         </ul>
         <nav>
-          <a class="nav-link" style="float: right;" routerLink="/login" routerLinkActive="active">Login</a>
-          <a class="nav-link" style="float: right;" (click)="logout()" routerLinkActive="active">Logout</a>
-          <a class="nav-link" *ngIf="userService.roleMatch(['Admin'])" style="float: right;" routerLink="/admin" routerLinkActive="active">Admin</a>
+          <a class="nav-link" style="float: right; padding-right: 10px;" routerLink="/login" routerLinkActive="active">Login</a>
+          <a class="nav-link" style="float: right; padding-right: 10px;" (click)="logout()" routerLinkActive="active">Logout</a>
+          <a class="nav-link" *ngIf="userService.roleMatch(['Admin'])" style="float: right;padding-right: 10px;" routerLink="/admin" routerLinkActive="active">Admin</a>
         </nav>
       </div>
     </div>

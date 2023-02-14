@@ -23,7 +23,7 @@ export class UserService {
 
   public register(registerNewUserData: any) {
     return this.httpclient.post(
-      this.API_PATH + '/registerNewUser',
+      this.API_PATH + '/registerUser',
       registerNewUserData,
       { headers: this.requestHeader }
     );

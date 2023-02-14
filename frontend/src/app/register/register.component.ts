@@ -27,16 +27,22 @@ export class RegisterComponent {
     }
 
   register(registerForm:any){
-    console.log(registerForm);
-    // this.userService.register(registerForm.value).subscribe(
-    //   (response)=>{
-    //     this.router.navigate(['/login']);
-    //     console.log(response);
-    //   },
-    //   (error) =>{
-    //     console.log(error);
-    //   }
-    // )
+    var data = {
+      'userName' : registerForm.value.userName,
+      'firstName' : registerForm.value.firstName,
+      'lastName' : registerForm.value.lastName,
+      'userPassword' : registerForm.value.userPassword,
+      'email' : this.email.value
+    }
+    this.userService.register(data).subscribe(
+      (response)=>{
+        this.router.navigate(['/login']);
+        console.log(response);
+      },
+      (error) =>{
+        console.log(error);
+      }
+    )
   }
 
 }

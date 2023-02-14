@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
       
   }
-
+  hide = true;
   login(loginForm: any){
     this.userService.login(loginForm.value).subscribe(
       (response:any)=>{

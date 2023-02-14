@@ -2,7 +2,35 @@
   <div class="card">
     <div class="container">
       <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-        <input
+        <mat-form-field appearance="fill" class="w-100 mb-2">
+          <mat-label>Username</mat-label>
+          <input 
+          matInput
+          ngModel
+          name="userName"
+          id="userName" 
+          placeholder="Enter your username" />
+          <mat-hint>Username</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100 mb-2">
+          <mat-label>Enter your password</mat-label>
+          <input type="password"
+          matInput
+          ngModel
+          name="userPassword"
+          id="userPassword" 
+          [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint>Password</mat-hint>
+        </mat-form-field>
+
+        <button class="w-100 mb-3" type="submit" mat-raised-button color="primary">Login</button>
+
+
+        <!-- <input
           type="text"
           ngModel
           name="userName"
@@ -22,11 +50,20 @@
           type="submit"
           value="Login"
           class="btn btn-outline-primary form-control rounded-0"
-        />
+        /> -->
       </form>
     </div>
     <div class="container">
-        <button type="button" class="btn btn-success form-control mb-4 mt-4" (click)="registerUser()">Sign Up</button>
+      <!-- <button
+        type="button"
+        class="btn btn-success form-control mb-4 mt-4"
+        (click)="registerUser()"
+      >
+        Sign Up
+      </button> -->
+      <button class="w-100 mb-3" 
+      (click)="registerUser()"
+      mat-raised-button>Sign-up</button>
     </div>
   </div>
 </div>

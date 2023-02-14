@@ -29,7 +29,7 @@ export class UserService {
     );
   }
 
-  public roleMatch(allowedRoles: any){
+  public roleMatch(allowedRoles: any): boolean{
       let isMatch = false;
       const userRoles: any = this.userAuthService.getRoles();
 
@@ -46,5 +46,5 @@ export class UserService {
   }
 
 
-  
+
 }

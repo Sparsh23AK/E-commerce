@@ -38,13 +38,11 @@ export class UserService {
           for (let j = 0; j < allowedRoles.length; j++) {
             if (userRoles[i].roleName === allowedRoles[j]) {
               isMatch = true;
-              return isMatch;
-            } else {
-              return isMatch;
-            }
+            } 
           }
         }
       }
+      return isMatch;
   }
 
 

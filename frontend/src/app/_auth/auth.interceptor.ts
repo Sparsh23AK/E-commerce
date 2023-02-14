@@ -31,9 +31,9 @@ export class AuthInterceptor implements HttpInterceptor{
                         this.router.navigate(['/login']);
                     }
                     else if(err.status === 403){
-                        this.router.navigate(['/home']);
+                        this.router.navigate(['/']);
                     }
-                    return throwError("Wrong Error");
+                    return throwError(() => new Error('Some thing went wrong'));
                 }
             )     
         )
@@ -43,7 +43,7 @@ export class AuthInterceptor implements HttpInterceptor{
         return request.clone(
             {
                 setHeaders:{
-                    Authorization : `Beaarer ${token}`
+                    Authorization : `Bearer ${token}`
                 }
             }
         );

@@ -5,7 +5,7 @@ import com.sghc.ecommerce.entity.User;
 public interface UserService {
 	
 	public User registerUser(User user);
-	
-	public void initRoleAndAdmin();
+//	
+//	public void initRoleAndAdmin();
 
 }

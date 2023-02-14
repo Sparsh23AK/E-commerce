@@ -47,7 +47,7 @@ public class WebSecurityConfiguration{
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
         .authorizeHttpRequests()
-        .requestMatchers("").permitAll()
+        .requestMatchers("/authenticate", "/registerUser").permitAll()
                 .requestMatchers(HttpHeaders.ALLOW).permitAll()
                 .anyRequest().authenticated()
                 .and()

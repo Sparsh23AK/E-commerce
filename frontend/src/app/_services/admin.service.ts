@@ -20,6 +20,12 @@ export class AdminService {
   saveProduct(product: object): Observable<object> {  
     return this.http.post(`${this.baseUrl}`+'products/save', product);  
   }  
+
+  uploadImage(file : File, productId : number){
+    const data: FormData = new FormData();
+    data.append('image', file);
+    return this.http.post(`${this.baseUrl}`+`products/images/${productId}`, data);  
+  }
   
   
 }

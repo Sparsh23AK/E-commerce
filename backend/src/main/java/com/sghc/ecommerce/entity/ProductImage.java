@@ -36,7 +36,7 @@ public class ProductImage {
     private int productId;
 
     @Lob
-    @Column(name = "image_data", length = 1000)
+    @Column(name = "image_data")
     private byte[] imageData;
 
 

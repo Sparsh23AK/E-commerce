@@ -28,8 +28,8 @@ public class ProductImageController {
 		this.productImageServiceImpl = productImageServiceImpl;
 	}
 
-	@PostMapping
-    public ResponseEntity<?> uploadImage(@RequestParam("image") MultipartFile file, @RequestParam("product_id") int productId) throws IOException {
+	@PostMapping("/{product_id}")
+    public ResponseEntity<?> uploadImage(@RequestParam("image") MultipartFile file, @PathVariable("product_id") int productId) throws IOException {
 
         ImageUploadResponse response = productImageServiceImpl.uploadImage(file, productId);
 

@@ -19,6 +19,9 @@ export class AdminComponent {
     type : new FormControl(),
     rating : new FormControl()
   });
+  
+  selectedFile!: File;
+  currentProductId!: number;
 
 constructor(private adminService : AdminService) { }
 
@@ -27,23 +30,30 @@ ngOnInit() {
 
   onAddProductSubmit(){
     console.log('addProductAdminFormControl' , this.addProductAdminFormControl.value);
-    this.adminService.saveProduct(this.addProductAdminFormControl.value).subscribe( {
-      next: (v) => console.log(v),
-      error: (e) => console.error(e),
-      complete: () => console.info('complete') 
-     })
+    this.adminService.saveProduct(this.addProductAdminFormControl.value).subscribe(
+      (response :any) => {
+        console.log(response, " from add product");
+        this.currentProductId = response.productId;
+        this.uploadImage(this.currentProductId);
+      },
+      (err : any) =>{
+        console.log("Error while processing, Description : " , err);
+      }
+    )
 
   }
 
   onFileSelect(input : any){
-    console.log(input.files);
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = (e: any) => {
-        console.log('Got here: ', e.target.result);
-      }
-     // reader.readAsDataURL(input.files[0]);
+    console.log(input.files[0]);
+    this.selectedFile = input.files[0];
     }
 
+  uploadImage(productId : number){
+    this.adminService.uploadImage(this.selectedFile, productId).subscribe(
+      (response : any) =>{
+        console.log(response)
+      }
+    );
   }
+
 }

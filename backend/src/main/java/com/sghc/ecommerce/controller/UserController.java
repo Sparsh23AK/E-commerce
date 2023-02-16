@@ -17,10 +17,6 @@ public class UserController {
 	private UserService userService;
 	
 	
-//	 @PostConstruct
-//	    public void initRoleAndUser() {
-//	        userService.initRoleAndAdmin();
-//	    }
 	 
 	@PostMapping("/registerUser")
 	public User registerUser(@RequestBody User user) {

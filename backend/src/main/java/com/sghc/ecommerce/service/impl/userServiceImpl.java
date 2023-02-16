@@ -22,40 +22,7 @@ public class userServiceImpl implements UserService{
 	private RoleRepository roleRepository;
 	@Autowired
     private PasswordEncoder passwordEncoder;
-	
-//	public void initRoleAndAdmin() {
-//		Role role = new Role();
-//		role.setRoleName("Admin");
-//		role.setDescription("Admin role");
-//		roleRepository.save(role);
-//		
-//		Role role2 = new Role();
-//		role.setRoleName("User");
-//		role.setDescription("User role");
-//		roleRepository.save(role2);
-		
-//		    User adminUser = new User();
-//	        adminUser.setUserName("sparsh23AK");
-//	        adminUser.setUserPassword(getEncodedPassword("Undertake@101"));
-//	        adminUser.setFirstName("Sparsh");
-//	        adminUser.setLastName("Giri");
-//	        Set<Role> adminRoles = new HashSet<>();
-//	        adminRoles.add(role);
-//	        adminUser.setRole(adminRoles);
-//	        userRepository.save(adminUser);
-//	        
-//	        User adminUser2 = new User();
-//	        adminUser2.setUserName("himanshuRyzen");
-//	        adminUser2.setUserPassword(getEncodedPassword("Ryzen@101"));
-//	        adminUser2.setFirstName("Himanshu");
-//	        adminUser2.setLastName("Chaurasia");
-//	        Set<Role> adminRoles2 = new HashSet<>();
-//	        adminRoles2.add(role);
-//	        adminUser2.setRole(adminRoles2);
-//	        userRepository.save(adminUser2);
-//
-//	}
-	
+
 	@Override
 	public User registerUser(User user) {
 		Role role = roleRepository.findById("User").get();

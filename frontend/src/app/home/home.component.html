@@ -2,6 +2,9 @@
 <div style="height:400px; width: 100%; top: auto; left: auto;position: relative;">
     <app-carousel ></app-carousel>
 </div>
-<app-cardscomp></app-cardscomp>
+<div *ngIf = "isProductMenAvailable">
+    <app-cardscomp [datasource] = "menProduct" ></app-cardscomp>
+</div>
+
 
 

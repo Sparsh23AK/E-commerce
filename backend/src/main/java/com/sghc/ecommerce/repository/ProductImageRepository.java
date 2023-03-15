@@ -9,9 +9,6 @@ import com.sghc.ecommerce.entity.ProductImage;
 
 public interface ProductImageRepository extends JpaRepository<ProductImage,Integer>  {
 
-	Optional<ProductImage> findByName(String name);
-
-//	@Query("SELECT auto_increment FROM information_schema.tables WHERE table_name='products_master';")
-//	public int currentSeqOfProduct();
+	Optional<ProductImage> findByProductId(int productId);
 
 }

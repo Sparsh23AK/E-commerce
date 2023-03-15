@@ -1,16 +1,17 @@
-<div class="container">
+<div class="container" *ngIf ="isDataSourceAvailable">
     <div class="row mb-4 mt-4">
         <div class="col-md-6">
-            <img src="https://images.bewakoof.com/web/latest-fashion-trends-bewakoof-blog-11-1621402707.jpg" alt="Women">
+            <img [src]="productDetail.imageData.url"  width="450px" height="600px">
         </div>
         <div class="col-md-6">
-            <h1 class="display-4">Salwar Kurti</h1>
+            <h1 class="display-4">{{productDetail.description}}</h1>
             <h2 class="text-muted">Latest Collection of Kurtis</h2>
             <hr>
             <div class="body">
-                <div class="price d-flex flex-row align-items-center"> <span class="act-price">Rs.999</span>
-                    <div class="ml-2"> <small class="dis-price">Rs.1999</small> <span>40% OFF</span> </div>
+                <div class="d-flex flex-row align-items-center"> <span class="act-price dis-price">Rs. {{productDetail.price}}  </span>
+                    <div class="ml-2"> <small class="dis-price"></small> <span>&nbsp;&nbsp; <fa-icon [icon]="faTag"></fa-icon> {{productDetail.discountPercentage}}% OFF</span> </div>
                 </div>
+                <div class ="act-price" style="color: green; font-weight: 700;"> <span>Rs. {{productDetail.discountPrice}}</span></div>
 
             </div>
         </div>

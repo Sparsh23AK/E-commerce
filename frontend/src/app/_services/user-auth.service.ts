@@ -7,23 +7,23 @@ export class UserAuthService {
   constructor() {}
 
   public setRoles(roles: []) {
-    localStorage.setItem('roles', JSON.stringify(roles));
+    sessionStorage.setItem('roles', JSON.stringify(roles));
   }
 
   public getRoles(): [] {
-    return JSON.parse(localStorage.getItem('roles')!);
+    return JSON.parse(sessionStorage.getItem('roles')!);
   }
 
   public setToken(jwtToken: string) {
-    localStorage.setItem('jwtToken', jwtToken);
+    sessionStorage.setItem('jwtToken', jwtToken);
   }
 
   public getToken(): string {
-    return localStorage.getItem('jwtToken')!;
+    return sessionStorage.getItem('jwtToken')!;
   }
 
   public clear(){
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
   public isLoggedIn(){

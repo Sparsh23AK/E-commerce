@@ -37,20 +37,4 @@ public class ProductImageController {
                 .body(response);
     }
 
-    @GetMapping("/info/{name}")
-    public ResponseEntity<?>  getImageInfoByName(@PathVariable("name") String name){
-    	ProductImage image = productImageServiceImpl.getInfoByImageByName(name);
-
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(image);
-    }
-
-    @GetMapping("/{name}")
-    public ResponseEntity<?>  getImageByName(@PathVariable("name") String name){
-        byte[] image = productImageServiceImpl.getImage(name);
-
-        return ResponseEntity.status(HttpStatus.OK)
-                .contentType(MediaType.valueOf("image/png"))
-                .body(image);
-    }
 }

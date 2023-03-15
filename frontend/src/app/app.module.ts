@@ -24,6 +24,10 @@ import { UserService } from './_services/user.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
+import { CartComponent } from './cart/cart.component';
+import { MatTableModule } from '@angular/material/table';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -37,7 +41,8 @@ import { MatIconModule } from '@angular/material/icon';
     CardscompComponent,
     ProductPageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,13 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    NgxUiLoaderModule,
+    FontAwesomeModule,
+    MatTableModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true,
+    })
   ],
   providers: [
     AuthGuard,

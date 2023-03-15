@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Pipe, PipeTransform } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { ProductService } from '../_services/product.service';
 
 @Component({
   selector: 'app-cardscomp',
@@ -8,19 +9,26 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class CardscompComponent {
-  frontendData=[
-    {title:'Our Category', cardInfo:[{cardTitle:'Men', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.' , cardHref:'#link'},
-                                      {cardTitle:'Men', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.' , cardHref:'#link'},
-                                      {cardTitle:'Men', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.' , cardHref:'#link'}]},
-    {title:'Men', cardInfo:[{cardTitle:'Latest trend', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.' , cardHref:'#link'},
-                            {cardTitle:'Latest trend', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.' , cardHref:'#link'},
-                            {cardTitle:'Latest trend', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.' , cardHref:'#link'},
-                            {cardTitle:'Latest trend', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.' , cardHref:'#link'}]}
-    // {title:'Women', cardTitle:'Latest trend', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.', cardHref:'#link'},
-    // {title:'Kids', cardTitle:'Latest trend', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.', cardHref:'#link'},
-    // {title:'Home & Living', cardTitle:'Latest trend', cardText:'Some quick example text to build on the card title and make up the bulk of the cards content.', cardHref:'#link'}
-  ]
 
-  // category=['Men','Women','Kids','Home & Living']
-  // menClothes=['Shirt','Shirt','Shirt','Shirt','Shirt','Shirt']
+  @Input() datasource : any = [];
+  title : String = "";
+  
+
+  constructor(private router : Router , public productService : ProductService){  }
+
+  ngOnInit(){
+    this.title = this.datasource[0].productCategory;
+
+  }
+  viewProduct(data : any){
+    console.log(data);
+    // let navigationExtras: NavigationExtras = {
+    //   queryParams: {
+    //       "productDetail": JSON.stringify(data)
+    //   }
+    // };
+    this.productService.setProductDetail(data);
+    this.router.navigate(["/view-product"]);
+  }
+
 }

@@ -9,7 +9,4 @@ public interface ProductImageService {
 
 	 public ImageUploadResponse uploadImage(MultipartFile file, int productId);
 
-	 public ProductImage getInfoByImageByName(String name);
-
-	 public byte[] getImage(String name);
 }

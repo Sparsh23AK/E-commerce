@@ -48,6 +48,7 @@
         </ul>
         <nav class="navbar navbar-light bg-light">
           <form class="container-fluid justify-content-start">
+            <button *ngIf="isLoggedIn() && userService.roleMatch(['User'])" class="btn btn-outline-success me-2" routerLink="/cart" routerLinkActive="active" type="button">Cart</button>
             <button *ngIf="!isLoggedIn()" class="btn btn-outline-success me-2" routerLink="/login" routerLinkActive="active" type="button">Login</button>
             <button *ngIf="isLoggedIn()" class="btn btn-outline-danger me-2" (click)="logout()" routerLinkActive="active" type="button">Logout</button>
           </form>

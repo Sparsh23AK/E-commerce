@@ -2,6 +2,7 @@ package com.sghc.ecommerce.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,21 +12,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sghc.ecommerce.entity.Product;
+import com.sghc.ecommerce.entity.ProductImage;
 import com.sghc.ecommerce.service.ProductService;
+import com.sghc.ecommerce.service.impl.ProductImageServiceImpl;
 
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
 
-	private final ProductService productService;
+	@Autowired
+	private  ProductService productService;
+	@Autowired
+	private  ProductImageServiceImpl productImageServiceImpl;
 
-	 public ProductController(ProductService productService) {
-	        this.productService = productService;
-	    }
 
 	@GetMapping("/product-details/{product_category}")
-	public List<Product> getProductDetailsByCategory(@PathVariable("product_category") String Category){
-		return productService.getProductDetailsByCategory(Category);
+	public List<Product> getProductDetailsByCategory(@PathVariable("product_category") String category){
+		
+		
+		return productService.getProductDetailsByCategory(category);
 	}
 
 	@PostMapping("/save")

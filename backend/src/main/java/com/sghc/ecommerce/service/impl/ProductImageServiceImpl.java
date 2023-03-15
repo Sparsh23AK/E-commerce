@@ -33,7 +33,7 @@ public class ProductImageServiceImpl implements ProductImageService{
 			        .name(file.getOriginalFilename())
 			        .type(file.getContentType())
 			        .productId(productId)
-			        .imageData(ImageUtil.compressImage(file.getBytes())).build());
+			        .imageData(file.getBytes()).build());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -42,23 +42,4 @@ public class ProductImageServiceImpl implements ProductImageService{
                 file.getOriginalFilename());
 	}
 
-	@Override
-	@Transactional
-	public ProductImage getInfoByImageByName(String name) {
-		Optional<ProductImage> dbImage = productImageRepository.findByName(name);
-
-        return ProductImage.builder()
-                .name(dbImage.get().getName())
-                .type(dbImage.get().getType())
-                .productId(dbImage.get().getProductId())
-                .imageData(ImageUtil.decompressImage(dbImage.get().getImageData())).build();
-	}
-
-	@Override
-	@Transactional
-	public byte[] getImage(String name) {
-		Optional<ProductImage> dbImage = productImageRepository.findByName(name);
-        byte[] image = ImageUtil.decompressImage(dbImage.get().getImageData());
-        return image;
-	}
 }

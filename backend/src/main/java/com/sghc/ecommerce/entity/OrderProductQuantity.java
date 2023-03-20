@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,19 +14,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cart {
+public class OrderProductQuantity {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cartId;
+	private Integer setId;
 	
-	private String userName;
+	private Integer productId;
 	
-	private int productId;
-	
-	@OneToOne
-	private Product product;
-	
-	private int quantity;
-	
-	private double cartAmount;
+	private Integer quantity;
 }

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit{
       (response:any)=>{
         this.userAuthService.setRoles(response.user.role);
         this.userAuthService.setToken(response.jwtToken); 
-
+        this.userAuthService.setLoggedInUserDetail(response.user);
         const role = response.user.role[0].roleName;
         if(role === 'Admin'){
           this.router.navigate(['/admin']);

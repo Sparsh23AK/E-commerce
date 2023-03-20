@@ -29,5 +29,32 @@ export class ProductService {
     return this.productDetail;
   }
 
+  addToCart(cartDetails : any){
+    return this.http.post(`${this.baseUrl}`+'cart/addToCart', cartDetails);  
+  }
 
+  getCartValueByUser(user_name: String): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+`cart/getCart/${user_name}`);
+  }
+
+  modifyCartDetails(cartDetails: any[]){
+    for(let i=0; i < cartDetails.length; i++){
+      const price = cartDetails[i].product.price;
+      const discPerc = cartDetails[i].product.discountPercentage;
+      cartDetails[i].product.price = price - (price * discPerc) / 100;
+    }
+    return cartDetails;
+  }
+
+  deleteCartItem(cartId: any){
+    return this.http.delete(`${this.baseUrl}`+`cart/deleteCartItem/${cartId}`);
+  }
+
+  placeOrder(orderDetail : any){
+    return this.http.post(`${this.baseUrl}`+'order/placeOrder', orderDetail);
+  }
+
+  getOrderDetails(user_name: String): Observable<any>{
+    return this.http.get(`${this.baseUrl}`+`order/getOrderDetails/${user_name}`)
+  }
 }

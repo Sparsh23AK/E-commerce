@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserAuthService {
+
+  userDetail: any = null;
+
   constructor() {}
 
   public setRoles(roles: []) {
@@ -28,5 +31,13 @@ export class UserAuthService {
 
   public isLoggedIn(){
     return this.getRoles() && this.getToken();
+  }
+
+  public setLoggedInUserDetail(userDetail : []){
+    sessionStorage.setItem('loggedInUserDetails', JSON.stringify(userDetail));
+  }
+
+  public getLoggedInUserDetail(){
+    return JSON.parse(sessionStorage.getItem('loggedInUserDetails')!);
   }
 }

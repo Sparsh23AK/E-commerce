@@ -4,15 +4,26 @@
             <img [src]="productDetail.imageData.url"  width="450px" height="600px">
         </div>
         <div class="col-md-6">
-            <h1 class="display-4">{{productDetail.description}}</h1>
-            <h2 class="text-muted">Latest Collection of Kurtis</h2>
+            <h1 class="display-5">{{productDetail.description}}</h1>
+            <h2 class="text-muted">Latest Collection of {{productDetail.type}}</h2>
             <hr>
             <div class="body">
-                <div class="d-flex flex-row align-items-center"> <span class="act-price dis-price">Rs. {{productDetail.price}}  </span>
-                    <div class="ml-2"> <small class="dis-price"></small> <span>&nbsp;&nbsp; <fa-icon [icon]="faTag"></fa-icon> {{productDetail.discountPercentage}}% OFF</span> </div>
+                <div class=" d-flex flex-row align-items-center"> <span class="act-price dis-price">Rs. {{productDetail.price}}  </span>
+                    <div class="ml-2"><span>&nbsp;&nbsp; <fa-icon [icon]="faTag"></fa-icon> {{productDetail.discountPercentage}}% OFF</span> </div>
                 </div>
-                <div class ="act-price" style="color: green; font-weight: 700;"> <span>Rs. {{productDetail.discountPrice}}</span></div>
-
+                <div class ="act-price d-flex flex-row align-items-center" style="color: green; font-weight: 700;"> <span>Rs. {{productDetail.discountPrice}}</span></div>
+                <div class ="act-price d-flex flex-row align-items-center" style=" font-weight: 700;"> <span>Description : </span></div>
+                <div class ="act-price d-flex flex-row align-items-center" style=" font-weight: 400;"> <span>{{productDetail.subDescription}}</span></div>
+                <div class ="act-price d-flex flex-row align-items-center" style=" font-weight: 400;"> <span>Rating : {{productDetail.rating}}/5</span></div>
+                <div class ="act-price d-flex flex-row align-items-center" style=" font-weight: 400;"> <span>Availabe Size : <span style="border:2px black solid; font-weight: 700;padding-inline-start: 2px; padding-inline-end: 2px;">{{productDetail.size}}</span></span></div>
+                <div class ="act-price d-flex flex-row align-items-center" style=" font-weight: 700;">
+                     <span style="margin-right: 10px;">
+                        <button class="btn btn-outline-warning" (click) = "addToCart(productDetail, false)"> Add To Cart </button>
+                     </span>
+                     <span>
+                        <button class="btn btn-outline-success" (click) ="addToCart(productDetail, true)" > Buy Now </button>
+                     </span>
+                </div>
             </div>
         </div>
     </div>

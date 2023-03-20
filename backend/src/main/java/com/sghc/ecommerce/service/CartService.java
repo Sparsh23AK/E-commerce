@@ -11,4 +11,6 @@ public interface CartService {
 	public Cart addToCart(@RequestBody Cart cart);
 	
 	public List<Cart> findByUserName(String userName);
+	
+	public void deleteCartItem(Integer cartId);
 }

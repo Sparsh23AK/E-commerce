@@ -26,10 +26,18 @@ public class OrderDetailServiceImpl implements OrderDetailService{
 	
 	
 	@Override
-	public OrderDetail placeOrder(OrderDetail orderDetail) {
+	public OrderDetail placeOrder(OrderDetail orderDetail) throws Exception{
 		orderDetail.setOrderStatus(ORDER_PLACED);
 		cartRepository.deleteAllByUserName(orderDetail.getUserName());
-		return orderDetailRepository.save(orderDetail);
+		OrderDetail orderDetails = null;
+		try {
+			orderDetails = orderDetailRepository.save(orderDetail);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new Exception("Something Went Wrong");
+		}
+		return orderDetails;
 	}
 
 

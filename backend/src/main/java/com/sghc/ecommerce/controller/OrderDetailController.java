@@ -21,7 +21,7 @@ public class OrderDetailController {
 	private OrderDetailService orderDetailService;
 	
 	@PostMapping({"/placeOrder"})
-	public OrderDetail placeOrder(@RequestBody OrderDetail orderDetail) {
+	public OrderDetail placeOrder(@RequestBody OrderDetail orderDetail) throws Exception {
 		return orderDetailService.placeOrder(orderDetail);
 	}
 	

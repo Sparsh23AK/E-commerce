@@ -23,17 +23,17 @@ public class CartController {
 	private CartService cartService;
 	
 	@PostMapping({"/addToCart"})
-	public Cart addToCart(@RequestBody Cart cart) {
+	public Cart addToCart(@RequestBody Cart cart) throws Exception {
 		return cartService.addToCart(cart);
 	}
 	
 	@GetMapping({"/getCart/{user-name}"})
-	public List<Cart> getCartDetails(@PathVariable("user-name") String userName){
+	public List<Cart> getCartDetails(@PathVariable("user-name") String userName) throws Exception{
 		return cartService.findByUserName(userName);
 	}
 	
 	@DeleteMapping({"/deleteCartItem/{cartId}"})
-	public void deleteCartItem(@PathVariable("cartId") Integer cartId) {
+	public void deleteCartItem(@PathVariable("cartId") Integer cartId) throws Exception {
 		cartService.deleteCartItem(cartId);
 	}
 }

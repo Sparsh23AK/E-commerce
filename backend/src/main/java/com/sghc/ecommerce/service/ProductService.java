@@ -6,7 +6,7 @@ import com.sghc.ecommerce.entity.Product;
 
 public interface ProductService {
 
-	public List<Product> getProductDetailsByCategory(String productCategory);
+	public List<Product> getProductDetailsByCategory(String productCategory) throws Exception;
 
-	public Product saveProduct(Product product);
+	public Product saveProduct(Product product) throws Exception;
 }

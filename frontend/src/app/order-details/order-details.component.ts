@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../_services/product.service';
 import { UserAuthService } from '../_services/user-auth.service';
+import { faNoteSticky } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-order-details',
@@ -9,12 +11,16 @@ import { UserAuthService } from '../_services/user-auth.service';
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent {
+
+  faNoteSticky = faNoteSticky;
   loggedInUser: any;
   datasource: any = [];
   dataForOrder: any = [];
   isDataAvailable: boolean = false;
   title: String = "";
-  displayedColumns: string[] = ['productId', 'productDescription', 'quantity', 'price', 'action'];
+  displayedColumns: string[] = ['orderId', 'address', 'orderAmount', 'orderStatus', 'action'];
+  datasourceMl : any ;
+  displayedColumnsModal: string[] = ['productId', 'productDescription', 'quantity', 'price'];
 
 
   constructor(private router: Router,
@@ -32,8 +38,17 @@ export class OrderDetailsComponent {
   getOrderDetails(){
     this.productService.getOrderDetails(this.title).subscribe(
       res => {
-        console.log(res, "order Details");
+        this.datasource = res;
+        console.log(this.datasource);
       }
     )
+  }
+
+  viewOrderDetails(data : any){
+    for(let i =0 ; i < data.length ; i++){
+      const dicPrice = data[i].price - (data[i].price * data[i].discountPercentage)/100 ;
+      data[i].price = dicPrice;
+    }
+    this.datasourceMl = data;    
   }
 }

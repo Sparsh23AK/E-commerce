@@ -22,16 +22,31 @@ public class ProductServiceImpl implements ProductService{
 
 
 	@Override
-	public List<Product> getProductDetailsByCategory(String productCategory) {
-		// TODO Auto-generated method stub
-		return productRepository.findAllByProductCategory(productCategory);
+	public List<Product> getProductDetailsByCategory(String productCategory) throws Exception {
+		List<Product> productList = null;
+		try{
+			productList = productRepository.findAllByProductCategory(productCategory);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new Exception("Something Went Wrong");
+		}
+		return productList;
 	}
 
 
 
 	@Override
-	public Product saveProduct(Product product) {
-		return productRepository.save(product);
+	public Product saveProduct(Product product) throws Exception {
+		Product productDetails = null;
+		try{
+			productDetails = productRepository.save(product);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new Exception("Something Went Wrong");
+		}
+		return productDetails;
 	}
 
 }

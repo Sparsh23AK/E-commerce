@@ -1,27 +1,76 @@
-<!-- <div class="container mt-5 mb-5">
+  <!-- <div class= "jumbotron jumbotron-fluid mt-5 mb-5" >
+    <div class="container">
+      <h1 class="display-4">{{title}}'s Order List</h1>
+      <p class="lead">You don't have any Orders Pending</p>
+    </div>
+  </div> -->
+
+<div class="container mt-5 mb-5 col-md-8">
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
-      <ng-container matColumnDef="productId">
-        <th mat-header-cell *matHeaderCellDef> Product Id </th>
-        <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+      <ng-container matColumnDef="orderId">
+        <th mat-header-cell *matHeaderCellDef> Order Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
       </ng-container>
-      <ng-container matColumnDef="productDescription">
-        <th mat-header-cell *matHeaderCellDef> Product Description </th>
-        <td mat-cell *matCellDef="let element"> {{element.product.description}} </td>
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
       </ng-container>
-      <ng-container matColumnDef="quantity">
+      <ng-container matColumnDef="orderAmount">
         <th mat-header-cell *matHeaderCellDef> Quantity </th>
-        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.orderAmount}} </td>
       </ng-container>
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell *matCellDef="let element"> {{element.product.price}} </td>
+      <ng-container matColumnDef="orderStatus">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
       </ng-container>
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element"> <button class="btn btn-outline-success me-2"
-            (click)="deleteCartItem(element.cartId)" type="button">Delete</button> </td>
+        <td mat-cell *matCellDef="let element"> 
+          <fa-icon [icon]="faNoteSticky" class="fa-lg" style="cursor: pointer;"
+           (click)="viewOrderDetails(element.productList)" data-bs-toggle="modal" data-bs-target="#viewOrder" ></fa-icon>
+           </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </div> -->
+  </div>
+
+  <div class="modal fade" id="viewOrder" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header custom-bg text-black">
+          <h2 class="modal-title" id="modalLabel">{{title}}'s Order Details</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table mat-table [dataSource]="datasourceMl" >
+            <ng-container matColumnDef="productId">
+              <th mat-header-cell *matHeaderCellDef> Product Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="productDescription">
+              <th mat-header-cell *matHeaderCellDef> Product Description </th>
+              <td mat-cell *matCellDef="let element"> {{element.subDescription}} </td>
+            </ng-container>
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let element"> 1 </td>
+            </ng-container>
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+            <!--  In Future if user wants to remove product from order.
+              <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element"> <button class="btn btn-outline-success me-2"
+                  (click)="deleteCartItem(element.cartId)" type="button">Delete</button> </td>
+            </ng-container> -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsModal"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsModal;"></tr>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>

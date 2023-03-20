@@ -29,6 +29,7 @@ import { CartComponent } from './cart/cart.component';
 import { MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     LoginComponent,
     RegisterComponent,
     CartComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

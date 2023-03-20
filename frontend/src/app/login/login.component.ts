@@ -9,7 +9,7 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-
+  hide = true;
   constructor(
     private userService: UserService,
     private userAuthService: UserAuthService,
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
       
   }
-  hide = true;
+  
   login(loginForm: any){
     this.userService.login(loginForm.value).subscribe(
       (response:any)=>{

@@ -30,7 +30,6 @@ public class userServiceImpl implements UserService{
         userRoles.add(role);
         user.setRole(userRoles);
         user.setUserPassword(getEncodedPassword(user.getUserPassword()));
-
         return userRepository.save(user);
 	}
 	

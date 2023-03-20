@@ -6,6 +6,6 @@ import com.sghc.ecommerce.entity.ProductResponse;
 
 public interface CommonService {
 
-	public List<ProductResponse> getProductDetails(String category);
+	public List<ProductResponse> getProductDetails(String category) throws Exception;
 	
 }

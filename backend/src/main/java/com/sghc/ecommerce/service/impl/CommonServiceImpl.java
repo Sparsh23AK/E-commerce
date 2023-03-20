@@ -18,8 +18,16 @@ public class CommonServiceImpl implements CommonService{
 	public CommonRepository commonRepository;
 
 	@Override
-	public List<ProductResponse> getProductDetails(String category) {
-		return commonRepository.getProductDetails(category);
+	public List<ProductResponse> getProductDetails(String category) throws Exception {
+		List<ProductResponse> productResponse = null;
+		try{
+			productResponse = commonRepository.getProductDetails(category);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new Exception("Something Went Wrong");
+		}
+		return productResponse;
 	}
 	
 

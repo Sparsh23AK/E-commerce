@@ -19,7 +19,7 @@ public class CommonController {
 	public CommonServiceImpl commomServiceImpl;
 	
 	@GetMapping("/product-detail/{product_category}")
-	public List<ProductResponse> getProductDetailsByCategory(@PathVariable("product_category") String category){
+	public List<ProductResponse> getProductDetailsByCategory(@PathVariable("product_category") String category) throws Exception{
 		System.out.println(category);
 		return commomServiceImpl.getProductDetails(category);
 	}

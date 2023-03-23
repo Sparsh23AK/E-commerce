@@ -53,4 +53,25 @@ public class OrderDetailServiceImpl implements OrderDetailService{
 		}
 		return orderDetailsList;
 	}
+
+
+	@Override
+	public List<OrderDetail> getAllOrderDetails() throws Exception {
+		List<OrderDetail> orderDetailsList = null;
+		try{
+			orderDetailsList = orderDetailRepository.findAll();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new Exception("Something Went Wrong");
+		}
+		return orderDetailsList;
+	}
+
+
+	@Override
+	public int updateOrderStatusById(int orderId, String status) throws Exception {
+		
+		return orderDetailRepository.changeOrderStatusByOrderId(orderId, status);
+	}
 }

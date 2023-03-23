@@ -10,7 +10,7 @@ export class AdminService {
   private baseUrl: String; 
   
   constructor(private http:HttpClient) { 
-   this.baseUrl = 'http://localhost:8080/api/';
+   this.baseUrl = 'http://flipzonsghc-env.eba-p8mbe2mf.ap-northeast-1.elasticbeanstalk.com/api/';
   }  
   
   getProductList(): Observable<any> {  

@@ -16,6 +16,7 @@ export class HomeComponent {
 
   constructor(public productService : ProductService, public imageService : ImageService){
     this.getProductByMen();
+    this.getProductByWomen();
   }
 
   ngOnInit() {

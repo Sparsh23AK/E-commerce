@@ -6,7 +6,7 @@ import { UserAuthService } from './user-auth.service';
   providedIn: 'root',
 })
 export class UserService {
-  API_PATH = 'http://localhost:8080';
+  API_PATH = 'http://flipzonsghc-env.eba-p8mbe2mf.ap-northeast-1.elasticbeanstalk.com';
 
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
 
@@ -27,6 +27,14 @@ export class UserService {
       registerNewUserData,
       { headers: this.requestHeader }
     );
+  }
+
+  public validateUserName(user_name : string) {
+    return this.httpclient.get(
+      this.API_PATH + `/validateUserName/${user_name}`,
+      { headers: this.requestHeader }
+    ); 
+
   }
 
   public roleMatch(allowedRoles: any): boolean{

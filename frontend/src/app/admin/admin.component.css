@@ -6,3 +6,13 @@
     background:#e2e2e2;
     cursor:pointer;
 }
+
+td , th {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 200px;
+    text-align: center;
+}
+table {
+    width: 100%;
+  }

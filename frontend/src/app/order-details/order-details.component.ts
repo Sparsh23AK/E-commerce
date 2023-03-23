@@ -22,6 +22,8 @@ export class OrderDetailsComponent {
   datasourceMl : any ;
   displayedColumnsModal: string[] = ['productId', 'productDescription', 'quantity', 'price'];
 
+  isPlacedOdersAvailable : boolean = false;
+
 
   constructor(private router: Router,
     public productService: ProductService,
@@ -38,8 +40,10 @@ export class OrderDetailsComponent {
   getOrderDetails(){
     this.productService.getOrderDetails(this.title).subscribe(
       res => {
-        this.datasource = res;
-        console.log(this.datasource);
+        if(res.length != 0){
+          this.datasource = res;
+          this.isPlacedOdersAvailable = true;
+        }
       }
     )
   }

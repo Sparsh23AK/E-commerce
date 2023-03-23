@@ -12,7 +12,7 @@ export class ProductService {
   public productDetail : any = {};
   
   constructor(private http: HttpClient) { 
-   this.baseUrl = 'http://localhost:8080/api/';
+   this.baseUrl = 'http://flipzonsghc-env.eba-p8mbe2mf.ap-northeast-1.elasticbeanstalk.com/api/';
   }  
 
   getProductByCategory(product_category: String): Observable<any> {  
@@ -55,6 +55,15 @@ export class ProductService {
   }
 
   getOrderDetails(user_name: String): Observable<any>{
-    return this.http.get(`${this.baseUrl}`+`order/getOrderDetails/${user_name}`)
+    return this.http.get(`${this.baseUrl}`+`order/getOrderDetails/${user_name}`);
+  }
+
+
+  getAllOrderDetails(): Observable<any>{
+    return this.http.get(`${this.baseUrl}`+`order/getAllOrderDetails`);
+  }
+
+  changeOrderStatus(data : any){
+    return this.http.post(`${this.baseUrl}`+`order/changeOrderStatus` , data); 
   }
 }

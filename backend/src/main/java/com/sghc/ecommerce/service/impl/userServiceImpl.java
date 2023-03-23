@@ -1,6 +1,7 @@
 package com.sghc.ecommerce.service.impl;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,13 @@ public class userServiceImpl implements UserService{
 	 public String getEncodedPassword(String password) {
 	        return passwordEncoder.encode(password);
 	    }
+
+	@Override
+	public boolean validateUserName(String UserName) {
+		Optional<User> user = userRepository.findById(UserName);
+		if(user.isPresent()) return false;
+	
+		return true;
+	}
 
 }

@@ -5,5 +5,7 @@ import com.sghc.ecommerce.entity.User;
 public interface UserService {
 	
 	public User registerUser(User user);
+	
+	public boolean validateUserName(String UserName);
 
 }

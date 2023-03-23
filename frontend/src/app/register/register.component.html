@@ -10,6 +10,7 @@
           id="userName"
           placeholder="Enter your username"
         />
+        <p *ngIf="displayUserNameError" style="color: red; font-size: medium;">{{userNameErrorMessage}}</p>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="w-100">

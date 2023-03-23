@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sghc.ecommerce.entity.OrderDetail;
@@ -28,5 +29,16 @@ public class OrderDetailController {
 	@GetMapping({"/getOrderDetails/{user-name}"})
 	public List<OrderDetail> getAllOrderDetailsByUserName(@PathVariable("user-name") String userName) throws Exception{
 		return orderDetailService.getAllOrderDetailsByUserName(userName);
+	}
+	
+	@GetMapping({"/getAllOrderDetails"})
+	public List<OrderDetail> getAllOrderDetails() throws Exception{
+		return orderDetailService.getAllOrderDetails();
+	}
+	
+	@PostMapping({"/changeOrderStatus"})
+	public int updateOrderStatusById(@RequestBody OrderDetail orderDetail )throws Exception {
+		return orderDetailService.updateOrderStatusById(orderDetail.getOrderId(),orderDetail.getOrderStatus());
+		
 	}
 }

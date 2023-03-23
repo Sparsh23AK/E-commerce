@@ -1,11 +1,14 @@
-  <!-- <div class= "jumbotron jumbotron-fluid mt-5 mb-5" >
+<div class= "jumbotron jumbotron-fluid mt-5 mb-5" *ngIf ="!isPlacedOdersAvailable" >
     <div class="container">
       <h1 class="display-4">{{title}}'s Order List</h1>
       <p class="lead">You don't have any Orders Pending</p>
     </div>
-  </div> -->
+</div>
 
-<div class="container mt-5 mb-5 col-md-8">
+<div class="container mt-5 mb-5 col-md-8" *ngIf ="isPlacedOdersAvailable">
+  <div class="container">
+    <h1 class="display-4">{{title}}'s Order List</h1>
+  </div>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
       <ng-container matColumnDef="orderId">
         <th mat-header-cell *matHeaderCellDef> Order Id </th>

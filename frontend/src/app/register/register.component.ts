@@ -17,6 +17,8 @@ export class RegisterComponent {
 
     hide = true;
     email = new FormControl('', [Validators.required, Validators.email]);
+    userNameErrorMessage : String ="";
+    displayUserNameError : boolean = false;
 
     getErrorMessage() {
       if (this.email.hasError('required')) {
@@ -34,15 +36,32 @@ export class RegisterComponent {
       'userPassword' : registerForm.value.userPassword,
       'email' : this.email.value
     }
-    this.userService.register(data).subscribe(
-      (response)=>{
-        this.router.navigate(['/login']);
-        console.log(response);
-      },
-      (error) =>{
-        console.log(error);
+    this.userService.validateUserName(registerForm.value.userName).subscribe(
+      res => {
+        if(res){
+          this.userService.register(data).subscribe(
+            (response)=>{
+              this.router.navigate(['/login']);
+              console.log(response);
+              this.userNameErrorMessage ="";
+              this.displayUserNameError = false;
+            },
+            (error) =>{
+              console.log(error);
+            }
+          );
+        } else{
+          this.userNameErrorMessage ="User Name Already Exist";
+          this.displayUserNameError = true;
+          this.email =  new FormControl('', [Validators.required, Validators.email]);
+          registerForm.reset();
+
+        }
+      }, err =>{
+        console.log("SomeThing went wrong", err)
       }
-    )
+    );
+    
   }
 
 }

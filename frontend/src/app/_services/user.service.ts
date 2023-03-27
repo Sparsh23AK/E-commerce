@@ -7,6 +7,7 @@ import { UserAuthService } from './user-auth.service';
 })
 export class UserService {
   API_PATH = 'http://flipzonsghc-env.eba-p8mbe2mf.ap-northeast-1.elasticbeanstalk.com';
+  // API_PATH = 'http://localhost:8080';
 
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
 

@@ -25,14 +25,6 @@ public class ProductController {
 	@Autowired
 	private  ProductImageServiceImpl productImageServiceImpl;
 
-
-	@GetMapping("/product-details/{product_category}")
-	public List<Product> getProductDetailsByCategory(@PathVariable("product_category") String category) throws Exception{
-		
-		
-		return productService.getProductDetailsByCategory(category);
-	}
-
 	@PostMapping("/save")
 	public ResponseEntity<Product> saveProductDetails(@RequestBody Product product) throws Exception{
 		return new ResponseEntity<Product>(productService.saveProduct(product), HttpStatus.CREATED);

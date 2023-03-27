@@ -24,7 +24,7 @@ export class HomeComponent {
 
 
   getProductByMen(){
-    this.productService.getProductByCategory("Men")
+    this.productService.getProductByCategoryHomePage("Men")
     .subscribe(
       res => {
         this.menProduct = this.imageService.createImage(res);
@@ -33,7 +33,7 @@ export class HomeComponent {
     );
   }
   getProductByWomen(){
-    this.productService.getProductByCategory("Women")
+    this.productService.getProductByCategoryHomePage("Women")
     .subscribe(
       res => {
         this.womenProduct = this.imageService.createImage(res);

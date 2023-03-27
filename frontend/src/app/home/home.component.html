@@ -1,9 +1,29 @@
 <div>
-    <app-carousel ></app-carousel>
+    <img src="../assets/images/sghc-home.png" alt="Home Image" width="100%">
 </div>
-<div *ngIf = "isProductMenAvailable">
-    <app-cardscomp [datasource] = "menProduct" ></app-cardscomp>
+<div>
+    <img src="../assets/images/sghc-home-2.png" alt="Home Image"
+        style="object-fit: scale-down; width: 60%; height: 80%; margin-left: 20%;">
 </div>
-<div *ngIf = "isProductWomenAvailable">
-    <app-cardscomp [datasource] = "womenProduct" ></app-cardscomp>
+
+
+<div class="container">
+    <a  routerLink="/category/Men">Latest Collection in Men Trending >> </a>
+    <hr>
+    <div *ngIf="isProductMenAvailable">
+        <app-cardscomp [datasource]="menProduct"></app-cardscomp>
+    </div>
+</div>
+
+<div>
+    <img src="../assets/images/sghc-home-3.png" alt="Home Image"
+        style="object-fit: scale-down; width: 60%; height: 80%; margin-left: 20%;">
+</div>
+
+<div class="container mb-5">
+    <a routerLink="/category/Women">Latest Collection in Women Trending >></a>
+    <hr>
+    <div *ngIf="isProductWomenAvailable">
+        <app-cardscomp [datasource]="womenProduct"></app-cardscomp>
+    </div>
 </div>

@@ -11,6 +11,7 @@ import { ProductService } from '../_services/product.service';
 export class CardscompComponent {
 
   @Input() datasource : any = [];
+  @Input() categoryName : String ="";
   title : String = "";
   
 

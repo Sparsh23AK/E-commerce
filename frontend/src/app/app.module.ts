@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     RegisterComponent,
     CartComponent,
     OrderDetailsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

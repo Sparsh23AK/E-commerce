@@ -29,19 +29,25 @@ export class ProductPageComponent {
       console.log(this.productDetail);
       this.isDataSourceAvailable = true;
   }
+  
   addToCart(data : any , isBuyOnly : boolean) {
-    const cartDetails = {
-      'userName' : this.loggedInUser.userName,
-      'productId' : data.productId,
-      'quantity' : 1
-    }
-    this.productService.addToCart(cartDetails).subscribe(
-      res => {
-        console.log(res);
-        if(isBuyOnly){
-          this.router.navigate(['/cart']);
-        }
+    if(this.userAuthService.isLoggedIn()){
+      const cartDetails = {
+        'userName' : this.loggedInUser.userName,
+        'productId' : data.productId,
+        'quantity' : 1
       }
-    )
+      this.productService.addToCart(cartDetails).subscribe(
+        res => {
+          console.log(res);
+          if(isBuyOnly){
+            this.router.navigate(['/cart']);
+          }
+        }
+      )
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 }

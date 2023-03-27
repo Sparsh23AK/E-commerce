@@ -1,0 +1,20 @@
+<div *ngIf="menProduct">
+    <img src="https://assets.myntassets.com/w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/3/e384cb32-690c-4ccf-a6cb-61df36960bb21651599573972-Workwear_Desk.jpg" alt="" width="100%">
+</div>
+<div *ngIf="!menProduct">
+    <img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/3/a20271c6-249f-480b-bcc7-1b150516e54e1651599573998-Dressberry_Desk.jpg" alt="" width="100%">
+</div>
+
+
+<div class = "container mt-3">
+    <!-- <div class="align-items-md-stretch mb-3">
+            <div
+                class="h-100 p-5 text-white bg-dark border rounded-3">
+                <h2>Filters</h2>
+                <button class="btn btn-outline-primary" type="button">Example button</button>&nbsp;&nbsp;
+                <button class="btn btn-outline-primary" type="button">Example button</button>&nbsp;&nbsp;
+                <button class="btn btn-outline-primary" type="button">Example button</button>
+            </div>
+    </div> -->
+    <app-cardscomp [datasource] = "productList" [categoryName] = "categoryName" ></app-cardscomp>
+</div>

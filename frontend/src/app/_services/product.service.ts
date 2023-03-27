@@ -13,10 +13,17 @@ export class ProductService {
   
   constructor(private http: HttpClient) { 
    this.baseUrl = 'http://flipzonsghc-env.eba-p8mbe2mf.ap-northeast-1.elasticbeanstalk.com/api/';
+  //  this.baseUrl = 'http://localhost:8080/api/';
   }  
 
   getProductByCategory(product_category: String): Observable<any> {  
     return this.http.get(`${this.baseUrl}`+`common/product-detail/${product_category}`, {
+      headers: this.requestHeader,
+    }); 
+  }  
+
+  getProductByCategoryHomePage(product_category: String): Observable<any> {  
+    return this.http.get(`${this.baseUrl}`+`common/product-detail-forHomePage/${product_category}`, {
       headers: this.requestHeader,
     }); 
   }  

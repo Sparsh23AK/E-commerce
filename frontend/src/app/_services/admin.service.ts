@@ -11,11 +11,8 @@ export class AdminService {
   
   constructor(private http:HttpClient) { 
    this.baseUrl = 'http://flipzonsghc-env.eba-p8mbe2mf.ap-northeast-1.elasticbeanstalk.com/api/';
-  }  
-  
-  getProductList(): Observable<any> {  
-    return this.http.get(`${this.baseUrl}`+'students-list');  
-  }  
+  //  this.baseUrl = 'http://localhost:8080/api/';
+  }   
   
   saveProduct(product: object): Observable<object> {  
     return this.http.post(`${this.baseUrl}`+'products/save', product);  

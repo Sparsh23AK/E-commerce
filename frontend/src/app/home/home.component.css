@@ -1,0 +1,24 @@
+a:link {
+    color: grey;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 2rem;
+  }
+  
+  a:visited {
+    color: grey;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: grey;
+    background-color: transparent;
+    text-decoration: underline;
+  }

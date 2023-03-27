@@ -8,4 +8,6 @@ public interface CommonService {
 
 	public List<ProductResponse> getProductDetails(String category) throws Exception;
 	
+	public List<ProductResponse> getProductDetailsHomePage(String category) throws Exception;
+	
 }
